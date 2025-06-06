@@ -59,10 +59,11 @@ body =f"""
 """
 emails = os.getenv('my_email')
 passwords =os.getenv('password')
-with smtplib.SMTP('smtp.gmail.com') as connection :
-    connection.starttls()
-    connection.login(user=emails,password=passwords)
-    connection.sendmail(to_addrs='your email',from_addr=emails,msg=f'Subject:Tesla news\n\n{body}')
+if difference > 5 or difference < -5 :
+    with smtplib.SMTP('smtp.gmail.com') as connection :
+        connection.starttls()
+        connection.login(user=emails,password=passwords)
+        connection.sendmail(to_addrs='your email',from_addr=emails,msg=f'Subject:Tesla news\n\n{body}')
 
 
 
